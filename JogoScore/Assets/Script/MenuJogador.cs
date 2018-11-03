@@ -19,4 +19,10 @@ public class MenuJogador : MonoBehaviour {
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    //PlayerPrefs
+    public void acessandodados()
+    {
+
+    }
 }
