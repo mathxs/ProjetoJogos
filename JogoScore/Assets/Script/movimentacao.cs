@@ -27,7 +27,12 @@ public class movimentacao : MonoBehaviour {
         if(col.tag == "Rotator")
         {
             transform.SetParent(col.transform);
+            col.GetComponent<rotator>().speed *= -1f;
             isPinned = true;
+        }else if (col.tag == "Pin")
+        {
+            //End Game
+            Debug.Log("End Game");
         }
     }
 
