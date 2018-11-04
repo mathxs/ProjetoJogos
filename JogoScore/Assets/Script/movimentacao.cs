@@ -29,7 +29,9 @@ public class movimentacao : MonoBehaviour {
             transform.SetParent(col.transform);
             col.GetComponent<rotator>().speed += 2f;
             col.GetComponent<rotator>().speed *= -1f;
+            Score.PinCount++;
             isPinned = true;
+
         }else if (col.tag == "Pin")
         {
             FindObjectOfType<gameManeger>().EndGame();

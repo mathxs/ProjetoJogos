@@ -15,6 +15,11 @@ public class ListaJogos : MonoBehaviour {
 		
 	}
 
+    public void PlayVoltando()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void PlayGame1()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

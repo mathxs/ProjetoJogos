@@ -1,19 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class gameManeger : MonoBehaviour {
 
     private bool gameHasEnded = false;
     public rotator rotator;
     public spawer spaw;
+    public Button button;
 
     public Animator animator;
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+
+        button.interactable = false;
+        button.enabled = false;
+        rotator.enabled = true;
+        spaw.enabled = true;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -27,11 +35,19 @@ public class gameManeger : MonoBehaviour {
 
         rotator.enabled = false;
         spaw.enabled = false;
-
-        animator.SetTrigger("EndGame");
-
         gameHasEnded = true;
+        button.gameObject.SetActive(true);
+        button.interactable = true;
+        button.enabled = true;
+        PlayerPrefs.SetInt("Pontuacao", Score.PinCount);
+        animator.SetTrigger("EndGame");
         Debug.Log("End Game");
     }
+
+    public void Voltando()
+    {
+        SceneManager.LoadScene(2);
+    }
+
 
 }
