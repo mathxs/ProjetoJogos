@@ -53,7 +53,7 @@ public class gameManeger : MonoBehaviour {
 
         float anguloideal;
 
-        bolas = GameObject.FindGameObjectsWithTag("pin");
+        bolas = GameObject.FindGameObjectsWithTag("Pin");
         int bolasCount = bolas.Length;
         angulos = new List<float>();
         angulos.Add(bolasCount);    
