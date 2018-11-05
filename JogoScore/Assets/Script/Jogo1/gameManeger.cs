@@ -58,17 +58,33 @@ public class gameManeger : MonoBehaviour {
         int bolasCount = bolas.Length;
         
         angulos = new List<float>();
+        List<int> protegendo = new List<int>();
         //angulos.Add(bolasCount);    
 
         anguloideal = 360 / bolasCount;
 
-        for (int i = 0; i < bolasCount -1 ; i++)
+        for (int i = 0; i < bolasCount; i++)
         {
-            bola1 = bolas[i].transform.position - rotator.transform.position;
-            Debug.Log(bola1);
-            bola2 = bolas[i + 1].transform.position - rotator.transform.position;
-            Debug.Log(bola2);
-            angulos.Add(Vector2.Angle(bola1, bola2));
+            float temp = 0f;
+            float temp1 = 640f;
+            int cont = 0;
+            for (int j = 0; j < bolasCount; j++)
+            {
+                bola1 = bolas[i].transform.position - rotator.transform.position;
+                Debug.Log(bola1);
+                bola2 = bolas[j].transform.position - rotator.transform.position;
+                Debug.Log(bola2);
+                temp = Vector2.Angle(bola1, bola2);
+                Debug.Log(temp);
+                Debug.Log(temp1);
+                if (temp <= temp1 & i!= j & !protegendo.Contains(j)) 
+                {
+                    cont = j;
+                    temp1 = temp;
+                }
+            }
+            protegendo.Add(cont);
+            angulos.Add(temp1);
             Debug.Log(angulos[i]);
         }
         
