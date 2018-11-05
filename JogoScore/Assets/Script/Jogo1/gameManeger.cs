@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class gameManeger : MonoBehaviour {
 
     private bool gameHasEnded = false;
@@ -48,7 +49,7 @@ public class gameManeger : MonoBehaviour {
 
         Vector2 bola2;
         Vector2 bola2;
-        using System.Collections.Generics;
+        
         public List<float> angulos;
 
         var bolas = GameObject.FindGameObjectsWithTag("pin");
@@ -60,7 +61,7 @@ public class gameManeger : MonoBehaviour {
         {
             bola1 =  bolas[i].transform.position - rotator.transform.position   
             bola2 = bolas[i+1].transform.position - rotator.transform.position
-            angulo = 
+            angulos[i] = Vector2.Angle(bola1, bola2);
         }
 
         //Final da Metrica de Simetria
