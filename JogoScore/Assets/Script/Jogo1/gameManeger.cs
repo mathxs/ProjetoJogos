@@ -11,11 +11,13 @@ public class gameManeger : MonoBehaviour {
     public rotator rotator;
     public spawer spaw;
     public Button button;
-
+    public Vector2 bola1;
+    public Vector2 bola2;
     public Animator animator;
+    public GameObject[] bolas;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
         button.interactable = false;
         button.enabled = false;
@@ -46,24 +48,25 @@ public class gameManeger : MonoBehaviour {
         }
 
         // Conta a Metrica de Simetria
+                     
+        List<float> angulos;
 
-        Vector2 bola2;
-        Vector2 bola2;
-        
-        public List<float> angulos;
+        float anguloideal;
 
-        var bolas = GameObject.FindGameObjectsWithTag("pin");
-        var bolasCount = bolas.Length;
+        bolas = GameObject.FindGameObjectsWithTag("pin");
+        int bolasCount = bolas.Length;
         angulos = new List<float>();
         angulos.Add(bolasCount);    
 
-        for (var i = 0 to bolasCount)
+        anguloideal = 360 / bolasCount;
+
+        for (int i = 0; i < bolasCount; i++)
         {
-            bola1 =  bolas[i].transform.position - rotator.transform.position   
-            bola2 = bolas[i+1].transform.position - rotator.transform.position
+            bola1 = bolas[i].transform.position - rotator.transform.position;
+            bola2 = bolas[i + 1].transform.position - rotator.transform.position;
             angulos[i] = Vector2.Angle(bola1, bola2);
         }
-
+        
         //Final da Metrica de Simetria
 
         animator.SetTrigger("EndGame");
