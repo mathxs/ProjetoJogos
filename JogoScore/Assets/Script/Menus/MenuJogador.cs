@@ -25,6 +25,6 @@ public class MenuJogador : MonoBehaviour
 
     public void VoltandoMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(0);
     }
 }

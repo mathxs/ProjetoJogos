@@ -36,13 +36,16 @@ public class gameManeger : MonoBehaviour {
         rotator.enabled = false;
         spaw.enabled = false;
         gameHasEnded = true;
+
         button.gameObject.SetActive(true);
         button.interactable = true;
         button.enabled = true;
+
         if (PlayerPrefs.GetInt("Pontuacao", 0) < Score.PinCount)
         {
             PlayerPrefs.SetInt("Pontuacao", Score.PinCount);
         }
+
         animator.SetTrigger("EndGame");
         Debug.Log("End Game");
     }
