@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class gameManeger : MonoBehaviour {
 
     private bool gameHasEnded = false;
@@ -46,6 +47,30 @@ public class gameManeger : MonoBehaviour {
             PlayerPrefs.SetInt("Pontuacao", Score.PinCount);
         }
 
+<<<<<<< HEAD
+=======
+        // Conta a Metrica de Simetria
+
+        Vector2 bola2;
+        Vector2 bola2;
+        
+        public List<float> angulos;
+
+        var bolas = GameObject.FindGameObjectsWithTag("pin");
+        var bolasCount = bolas.Length;
+        angulos = new List<float>();
+        angulos.Add(bolasCount);    
+
+        for (var i = 0 to bolasCount)
+        {
+            bola1 =  bolas[i].transform.position - rotator.transform.position   
+            bola2 = bolas[i+1].transform.position - rotator.transform.position
+            angulos[i] = Vector2.Angle(bola1, bola2);
+        }
+
+        //Final da Metrica de Simetria
+
+>>>>>>> 281dc4e96c475bc2444dad6b1183a4a476511e20
         animator.SetTrigger("EndGame");
         Debug.Log("End Game");
     }
