@@ -60,7 +60,7 @@ public class gameManeger : MonoBehaviour {
 
         anguloideal = 360 / bolasCount;
 
-        for (int i = 0; i < bolasCount; i++)
+        for (int i = 0; i < bolasCount -1 ; i++)
         {
             bola1 = bolas[i].transform.position - rotator.transform.position;
             bola2 = bolas[i + 1].transform.position - rotator.transform.position;
