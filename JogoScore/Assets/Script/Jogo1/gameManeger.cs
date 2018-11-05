@@ -53,6 +53,7 @@ public class gameManeger : MonoBehaviour {
         //List<float> angulos;
 
         float anguloideal;
+        float erromedio = 0;
 
         bolas = GameObject.FindGameObjectsWithTag("Pin");
         int bolasCount = bolas.Length;
@@ -71,12 +72,12 @@ public class gameManeger : MonoBehaviour {
             for (int j = 0; j < bolasCount; j++)
             {
                 bola1 = bolas[i].transform.position - rotator.transform.position;
-                Debug.Log(bola1);
+                //Debug.Log(bola1);
                 bola2 = bolas[j].transform.position - rotator.transform.position;
-                Debug.Log(bola2);
+                //Debug.Log(bola2);
                 temp = Vector2.Angle(bola1, bola2);
-                Debug.Log(temp);
-                Debug.Log(temp1);
+                //Debug.Log(temp);
+                //Debug.Log(temp1);
                 if (temp <= temp1 & i!= j & !protegendo.Contains(j)) 
                 {
                     cont = j;
@@ -85,13 +86,21 @@ public class gameManeger : MonoBehaviour {
             }
             protegendo.Add(cont);
             angulos.Add(temp1);
-            Debug.Log(angulos[i]);
+            //Debug.Log(angulos[i]);
         }
-        
-        //Final da Metrica de Simetria
 
-        animator.SetTrigger("EndGame");
-        Debug.Log("End Game");
+        for (int i = 0; i < bolasCount -1; i++)
+        {
+            erromedio = erromedio + Mathf.Abs(angulos[i] - anguloideal);
+        }
+
+        erromedio = erromedio / bolasCount;
+        Debug.Log(erromedio);
+
+            //Final da Metrica de Simetria
+
+            animator.SetTrigger("EndGame");
+            Debug.Log("End Game");
     }
 
     public void Voltando()
