@@ -43,6 +43,28 @@ public class gameManeger : MonoBehaviour {
         {
             PlayerPrefs.SetInt("Pontuacao", Score.PinCount);
         }
+
+        // Conta a Metrica de Simetria
+
+        Vector2 bola2;
+        Vector2 bola2;
+        using System.Collections.Generics;
+        public List<float> angulos;
+
+        var bolas = GameObject.FindGameObjectsWithTag("pin");
+        var bolasCount = bolas.Length;
+        angulos = new List<float>();
+        angulos.Add(bolasCount);    
+
+        for (var i = 0 to bolasCount)
+        {
+            bola1 =  bolas[i].transform.position - rotator.transform.position   
+            bola2 = bolas[i+1].transform.position - rotator.transform.position
+            angulo = 
+        }
+
+        //Final da Metrica de Simetria
+
         animator.SetTrigger("EndGame");
         Debug.Log("End Game");
     }
