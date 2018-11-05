@@ -39,14 +39,18 @@ public class gameManeger : MonoBehaviour {
         rotator.enabled = false;
         spaw.enabled = false;
         gameHasEnded = true;
+
         button.gameObject.SetActive(true);
         button.interactable = true;
         button.enabled = true;
+
         if (PlayerPrefs.GetInt("Pontuacao", 0) < Score.PinCount)
         {
             PlayerPrefs.SetInt("Pontuacao", Score.PinCount);
         }
 
+<<<<<<< HEAD
+=======
         // Conta a Metrica de Simetria
                      
         List<float> angulos;
@@ -69,6 +73,7 @@ public class gameManeger : MonoBehaviour {
         
         //Final da Metrica de Simetria
 
+>>>>>>> 281dc4e96c475bc2444dad6b1183a4a476511e20
         animator.SetTrigger("EndGame");
         Debug.Log("End Game");
     }
