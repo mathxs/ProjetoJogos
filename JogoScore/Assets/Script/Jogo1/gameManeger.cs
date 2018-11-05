@@ -15,6 +15,7 @@ public class gameManeger : MonoBehaviour {
     public Vector2 bola2;
     public Animator animator;
     public GameObject[] bolas;
+    public List<float> angulos;
 
     // Use this for initialization
     void Start () {
@@ -39,41 +40,40 @@ public class gameManeger : MonoBehaviour {
         rotator.enabled = false;
         spaw.enabled = false;
         gameHasEnded = true;
-
         button.gameObject.SetActive(true);
         button.interactable = true;
         button.enabled = true;
-
         if (PlayerPrefs.GetInt("Pontuacao", 0) < Score.PinCount)
         {
             PlayerPrefs.SetInt("Pontuacao", Score.PinCount);
         }
 
-<<<<<<< HEAD
-=======
         // Conta a Metrica de Simetria
                      
-        List<float> angulos;
+        //List<float> angulos;
 
         float anguloideal;
 
         bolas = GameObject.FindGameObjectsWithTag("Pin");
         int bolasCount = bolas.Length;
+        
         angulos = new List<float>();
-        angulos.Add(bolasCount);    
+        //angulos.Add(bolasCount);    
 
         anguloideal = 360 / bolasCount;
 
         for (int i = 0; i < bolasCount -1 ; i++)
         {
             bola1 = bolas[i].transform.position - rotator.transform.position;
+            Debug.Log(bola1);
             bola2 = bolas[i + 1].transform.position - rotator.transform.position;
-            angulos[i] = Vector2.Angle(bola1, bola2);
+            Debug.Log(bola2);
+            angulos.Add(Vector2.Angle(bola1, bola2));
+            Debug.Log(angulos[i]);
         }
         
         //Final da Metrica de Simetria
 
->>>>>>> 281dc4e96c475bc2444dad6b1183a4a476511e20
         animator.SetTrigger("EndGame");
         Debug.Log("End Game");
     }
