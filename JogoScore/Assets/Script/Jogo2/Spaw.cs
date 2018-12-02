@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Spaw : MonoBehaviour {
 	
-	public float spawnObjetos =1f
+	public float spawnObjetos =1f;
 
 	public GameObject forma;
 
@@ -14,8 +15,8 @@ public class Spaw : MonoBehaviour {
 
 		if(Time.time >= nextSpawn)
 		{
-			Instantiate(forma,Vector3.zero, Quaternion.identity);
-			nextSpawn = Time.time + 1
+			Instantiate(forma, Vector3.zero, Quaternion.identity);
+			nextSpawn = Time.time + 1f;
 		}
 		
 	}
