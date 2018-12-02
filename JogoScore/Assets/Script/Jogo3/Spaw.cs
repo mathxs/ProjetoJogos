@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Spaw : MonoBehaviour {
-	
-	public float spawnObjetos = 1f;
+public class Spaw : MonoBehaviour
+{
+
+    public float spawnObjetos = 5f;
     public int level = 1;
     public Text Text;
     public GameObject forma;
@@ -18,44 +19,56 @@ public class Spaw : MonoBehaviour {
 
     void Start()
     {
+        Button btn = button.GetComponent<Button>();
+        btn.onClick.AddListener(TaskOnClick);
+
         button.interactable = false;
         button.enabled = false;
         situacao = false;
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 
         if (situacao)
         {
             button.gameObject.SetActive(true);
             button.interactable = true;
             button.enabled = true;
-
             return;
         }
 
-        movement = Input.GetAxisRaw("Horizontal");
+        movement = Input.GetAxisRaw("Horizontal")/6;
 
         if (Time.time >= nextSpawn)
-		{
+        {
 
             Instantiate(forma, Vector3.zero, Quaternion.identity);
-            nextSpawn = Time.time + 1 / spawnObjetos;
+            nextSpawn = Time.time + 5 + spawnObjetos;
             level++;
+            spawnObjetos--;
             Text.text = "Ponto: " + level;
         }
-		
-	}
+
+    }
 
     private void FixedUpdate()
     {
         transform.RotateAround(Vector3.zero, Vector3.forward, movement * Time.fixedDeltaTime * -velocidade);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         situacao = true;
-        
+
     }
+
+    void TaskOnClick()
+    {
+        SceneManager.LoadScene(2);
+    }
+
 }
+ 
