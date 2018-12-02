@@ -10,26 +10,26 @@ public class main : MonoBehaviour {
 	
 	public GameObject proximo;
 	public GameObject ultimo;
-	public Text Text;
+    public Button button;
+    public Text Text;
 	public int level;
-	public bool estatos;
+	public bool estado;
 
 	private void newBlock()
 	{
 		if (ultimo != null)
 		{
-            proximo.transform.position = new Vector3(Mathf.Round(proximo.transform.position.x), Mathf.Round(proximo.transform.position.y), Mathf.Round(proximo.transform.position.z));
-            proximo.transform.localScale = new Vector3(ultimo.transform.localScale.x - Mathf.Abs(proximo.transform.position.x),ultimo.transform.position.y, ultimo.transform.localScale.z - Mathf.Abs(proximo.transform.position.z));
-            proximo.transform.position = Vector3.Lerp(ultimo.transform.position, ultimo.transform.position, 0.5f) + (Vector3.up * 5f);
-            if(proximo.transform.localScale.x <= 0f || proximo.transform.localScale.z <= 0f)
+            proximo.transform.position = new Vector3(Mathf.Round(proximo.transform.position.x), proximo.transform.position.y, Mathf.Round(proximo.transform.position.z));
+            proximo.transform.localScale = new Vector3(ultimo.transform.localScale.x - Mathf.Abs(proximo.transform.position.x - ultimo.transform.position.x),ultimo.transform.position.y, ultimo.transform.localScale.z - Mathf.Abs(proximo.transform.position.z - ultimo.transform.position.z));
+            proximo.transform.position = Vector3.Lerp(proximo.transform.position, ultimo.transform.position, 0.5f) + (Vector3.up * 5f);
+            Text.text = "Ponto: " + level;
+            if (proximo.transform.localScale.x <= 0f || proximo.transform.localScale.z <= 0f)
             {
-                estatos = true;
-                Text.gameObject.SetActive(true);
-                Text.text = "Ponto: " + level;
+                estado = true;
                 return;
-
             }
 		}
+
 		ultimo = proximo;
 		proximo = Instantiate(ultimo);
 		proximo.name = level + "";
@@ -42,12 +42,18 @@ public class main : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		newBlock();
-	}
+        button.interactable = false;
+        button.enabled = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		if(estatos){
-			return;
+		if(estado)
+        {
+            button.gameObject.SetActive(true);
+            button.interactable = true;
+            button.enabled = true;
+            return;
 		}
 
 		var time = Mathf.Abs(Time.realtimeSinceStartup % 2f - 1f);
@@ -65,4 +71,9 @@ public class main : MonoBehaviour {
 			newBlock();
 		}
 	}
+
+    public void Voltando()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
