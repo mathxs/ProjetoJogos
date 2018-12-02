@@ -31,6 +31,7 @@ public class Spaw : MonoBehaviour {
             button.gameObject.SetActive(true);
             button.interactable = true;
             button.enabled = true;
+
             return;
         }
 
