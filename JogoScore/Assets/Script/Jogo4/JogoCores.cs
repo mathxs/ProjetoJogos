@@ -9,7 +9,7 @@ public class JogoCores : MonoBehaviour {
 	public Color[] arraycores;
 	public string[] arraypalavras;
 	public int[] numeros;
-
+	public string palavraaleatoria;
 
 
 
@@ -34,25 +34,46 @@ public class JogoCores : MonoBehaviour {
 		arraypalavras[4] = "Vermelho";
 		arraypalavras[5] = "Roxo";
 
-		numeros[] = new int[6];
+		numeros[] = new int[20];
 		criasequencia();
-
-
+		jogodecores();
 
 	}
 
 	// Update is called once per frame
 	void Update () {
 
+
 	}
 
 	void criasequencia(){
 		srand((unsigned) time(&t));
 
-		for( i = 0 ; i < 5 ; i++ ) {
-		 numeros[i] = (int)(rand() % 50));
+		for( i = 0 ; i < 19 ; i++ ) {
+		 numeros[i] = (int)(rand() % 5);
 	 }
  }
+
+	void jogodecores(){
+
+
+		for( i = 0 ; i < 19 ; i++ ) {
+			palavraaleatoria = (int)(rand() % 5);
+			PalavraSorteada.GetComponent<Text>.Text = arraypalavras[palavraaleatoria];
+			PalavraSorteada.GetComponent<Text>.Color = arraycores[numeros[j]];
+			StartCoroutine(espera());
+
+		}
+
+
+
+	}
+
+	IEnumerator espera(){
+
+		 yield return new WaitForSeconds(5);
+
+	}
 
 
 }
