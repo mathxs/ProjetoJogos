@@ -40,7 +40,7 @@ public class Spaw : MonoBehaviour {
 		{
 
             Instantiate(forma, Vector3.zero, Quaternion.identity);
-			nextSpawn = Time.time + level / spawnObjetos;
+            nextSpawn = Time.time + 1 / spawnObjetos;
             level++;
             Text.text = "Ponto: " + level;
         }
