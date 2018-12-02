@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class forma : MonoBehaviour {
 
     public Rigidbody2D rb;
 	public float speed = 0.02f;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		rb.rotation = Random.Range(0f , 360f);
 		transform.localScale = Vector3.one * 10f;
 	}
@@ -19,6 +20,9 @@ public class forma : MonoBehaviour {
         if (transform.localScale.x <= 0.05f)
         {
             Destroy(gameObject);
+
         }
     }
+
+
 }

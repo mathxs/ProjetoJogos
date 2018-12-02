@@ -264,8 +264,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1005125464}
-        m_MethodName: 
+      - m_Target: {fileID: 1005125468}
+        m_MethodName: Voltando
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -311,48 +311,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 818755186}
   m_CullTransparentMesh: 0
---- !u!1 &870494902
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 870494904}
-  - component: {fileID: 870494903}
-  m_Layer: 0
-  m_Name: Spawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &870494903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 870494902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf75881ebbad8f142a6acd0b0516fd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnObjetos: 1
-  forma: {fileID: 1968580345383866, guid: 9c140edd797182343bf3b16ddb9ba217, type: 2}
---- !u!4 &870494904
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 870494902}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1005125464
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,10 +523,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1483131364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dfeaaf665432324d8d3257e572f8953, type: 3}
+  m_Script: {fileID: 11500000, guid: bf75881ebbad8f142a6acd0b0516fd47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnObjetos: 1
+  level: 1
+  Text: {fileID: 620509701}
+  forma: {fileID: 1613056777550974, guid: 9c140edd797182343bf3b16ddb9ba217, type: 2}
   velocidade: 600
+  button: {fileID: 818755188}
+  situacao: 0
 --- !u!58 &1483131366
 CircleCollider2D:
   m_ObjectHideFlags: 0
