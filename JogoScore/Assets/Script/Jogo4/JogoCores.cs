@@ -9,8 +9,8 @@ public class JogoCores : MonoBehaviour {
 	public Color[] arraycores;
 	public string[] arraypalavras;
 	public int[] numeros;
-	public string palavraaleatoria;
-
+	public int palavraaleatoria;
+	public GameObject PalavraSorteada;
 
 
 	// Use this for initialization
@@ -57,8 +57,9 @@ public class JogoCores : MonoBehaviour {
 	void jogodecores(){
 
 
-		for( i = 0 ; i < 19 ; i++ ) {
-			palavraaleatoria = (int)(rand() % 5);
+		for( int j = 0 ; j < 19 ; j++ ) {
+			palavraaleatoria = (int)(Random.Range(0,5));
+			//PalavraSorteada = Instantiate(GameObject);
 			PalavraSorteada.GetComponent<Text>.Text = arraypalavras[palavraaleatoria];
 			PalavraSorteada.GetComponent<Text>.Color = arraycores[numeros[j]];
 			StartCoroutine(espera());
@@ -71,7 +72,7 @@ public class JogoCores : MonoBehaviour {
 
 	IEnumerator espera(){
 
-		 yield return new WaitForSeconds(5);
+		 yield return new WaitForSeconds(3);
 
 	}
 
