@@ -5,18 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class Spaw : MonoBehaviour {
 	
-	public float spawnObjetos =1f;
+	public float spawnObjetos = 10f;
 
 	public GameObject forma;
 
-	private float nextSpawn;
+	private float nextSpawn = 0f;
 	// Update is called once per frame
 	void Update () {
 
 		if(Time.time >= nextSpawn)
 		{
 			Instantiate(forma, Vector3.zero, Quaternion.identity);
-			nextSpawn = Time.time + 1f;
+			nextSpawn = Time.time + 1f / spawnObjetos;
 		}
 		
 	}

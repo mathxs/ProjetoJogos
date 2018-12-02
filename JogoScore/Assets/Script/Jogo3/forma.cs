@@ -5,7 +5,7 @@ using UnityEngine;
 public class forma : MonoBehaviour {
 
     public Rigidbody2D rb;
-	public float speed = 3f;
+	public float speed = 0.02f;
 
 	// Use this for initialization
 	void Start () {
@@ -14,7 +14,11 @@ public class forma : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update () { 
+        transform.localScale -= Vector3.one * speed * Time.deltaTime;
+        if (transform.localScale.x <= 0.05f)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
