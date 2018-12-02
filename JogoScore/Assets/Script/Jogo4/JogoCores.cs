@@ -18,23 +18,23 @@ public class JogoCores : MonoBehaviour {
 
 		//Inicializa vetor de cores
 		arraycores = new Color[6];
-		arraycores[0] = Color.orange;
+        arraycores[0] = Color.white;
 		arraycores[1] = Color.blue;
 		arraycores[2] = Color.green;
 		arraycores[3] = Color.yellow;
 		arraycores[4] = Color.red;
-		arraycores[5] = Color.purple;
+        arraycores[5] = Color.gray;
 
 		//Inicializa Vetor de Palavras
 		arraypalavras = new string[6];
-		arraypalavras[0] = "Laranja";
+        arraypalavras[0] = "Branco";//"Laranja";
 		arraypalavras[1] = "Azul";
 		arraypalavras[2] = "Verde";
 		arraypalavras[3] = "Amarelo";
 		arraypalavras[4] = "Vermelho";
-		arraypalavras[5] = "Roxo";
+        arraypalavras[5] = "Cinza";//"Roxo";
 
-		numeros[] = new int[6];
+		numeros = new int[6];
 		criasequencia();
 
 
@@ -47,12 +47,12 @@ public class JogoCores : MonoBehaviour {
 	}
 
 	void criasequencia(){
-		srand((unsigned) time(&t));
+		//srand((unsigned) time(&t));
 
-		for( i = 0 ; i < 5 ; i++ ) {
-		 numeros[i] = (int)(rand() % 50));
+        for (int i = 0 ; i < 5 ; i++ ) {
+		 numeros[i] = (int)(Random.Range(0,100) % 50);
 	 }
- }
+ }  
 
 
 }
