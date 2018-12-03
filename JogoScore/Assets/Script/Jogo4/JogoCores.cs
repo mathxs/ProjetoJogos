@@ -78,5 +78,18 @@ public class JogoCores : MonoBehaviour {
 
 	}
 
+    public void salvando()
+    {
+        /*
+        if (PlayerPrefs.GetInt("Jogo4Pontuacao", 0) < level)
+        {
+            PlayerPrefs.SetInt("Jogo4Pontuacao", level);
+        }
+
+        PlayerPrefs.SetFloat("Jogo4Metrica", (PlayerPrefs.GetFloat("Jogo4Metrica", 0) + level) / 2);
+        */
+
+    }
+
 
 }

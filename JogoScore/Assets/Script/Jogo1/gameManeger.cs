@@ -43,9 +43,9 @@ public class gameManeger : MonoBehaviour {
         button.gameObject.SetActive(true);
         button.interactable = true;
         button.enabled = true;
-        if (PlayerPrefs.GetInt("Pontuacao", 0) < Score.PinCount)
+        if (PlayerPrefs.GetInt("Jogo1Pontuacao", 0) < Score.PinCount)
         {
-            PlayerPrefs.SetInt("Pontuacao", Score.PinCount);
+            PlayerPrefs.SetInt("Jogo1Pontuacao", Score.PinCount);
         }
 
         // Conta a Metrica de Simetria
@@ -97,9 +97,14 @@ public class gameManeger : MonoBehaviour {
         erromedio = erromedio / bolasCount;
         Debug.Log(erromedio);
 
-            //Final da Metrica de Simetria
+        //Final da Metrica de Simetria
 
-            animator.SetTrigger("EndGame");
+        if (PlayerPrefs.GetFloat("Jogo1Metrica", 0) < erromedio)
+        {
+            PlayerPrefs.SetFloat("Jogo1Metrica", erromedio);
+        }
+
+        animator.SetTrigger("EndGame");
             Debug.Log("End Game");
     }
 
