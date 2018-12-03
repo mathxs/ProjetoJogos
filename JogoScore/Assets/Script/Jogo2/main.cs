@@ -20,7 +20,7 @@ public class main : MonoBehaviour {
 		if (ultimo != null)
 		{
             proximo.transform.position = new Vector3(Mathf.Round(proximo.transform.position.x), proximo.transform.position.y, Mathf.Round(proximo.transform.position.z));
-            proximo.transform.localScale = new Vector3(ultimo.transform.localScale.x - Mathf.Abs(proximo.transform.position.x - ultimo.transform.position.x),ultimo.transform.position.y, ultimo.transform.localScale.z - Mathf.Abs(proximo.transform.position.z - ultimo.transform.position.z));
+            proximo.transform.localScale = new Vector3(ultimo.transform.localScale.x - Mathf.Abs(proximo.transform.position.x - ultimo.transform.position.x), ultimo.transform.localScale.y, ultimo.transform.localScale.z - Mathf.Abs(proximo.transform.position.z - ultimo.transform.position.z));
             proximo.transform.position = Vector3.Lerp(proximo.transform.position, ultimo.transform.position, 0.5f) + (Vector3.up * 5f);
             Text.text = "Ponto: " + level;
             if (proximo.transform.localScale.x <= 0f || proximo.transform.localScale.z <= 0f)
@@ -35,6 +35,7 @@ public class main : MonoBehaviour {
 		proximo.name = level + "";
 		proximo.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.HSVToRGB((level / 100f) % 1f, 1f, 1f));
         level++;
+       
         Camera.main.transform.position = proximo.transform.position + new Vector3(100,100,100);
         Camera.main.transform.LookAt(proximo.transform.position);
 	}
@@ -53,6 +54,14 @@ public class main : MonoBehaviour {
             button.gameObject.SetActive(true);
             button.interactable = true;
             button.enabled = true;
+
+            if (PlayerPrefs.GetInt("Jogo2Pontuacao", 0) < level)
+            {
+                PlayerPrefs.SetInt("Jogo2Pontuacao", level);
+            }
+            
+            PlayerPrefs.SetFloat("Jogo2Metrica", (PlayerPrefs.GetFloat("Jogo2Metrica", 0) + level) / 2);
+
             return;
 		}
 

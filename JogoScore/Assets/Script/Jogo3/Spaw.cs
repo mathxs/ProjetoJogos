@@ -18,10 +18,7 @@ public class Spaw : MonoBehaviour
 
     void Start()
     {
-        Button btn = button.GetComponent<Button>();
-        btn.onClick.AddListener(TaskOnClick);
-
-        button.interactable = false;
+       button.interactable = false;
         button.enabled = false;
         situacao = false;
     }
@@ -35,6 +32,17 @@ public class Spaw : MonoBehaviour
             button.gameObject.SetActive(true);
             button.interactable = true;
             button.enabled = true;
+            new WaitForSeconds(3);
+
+            if (PlayerPrefs.GetInt("Jogo3Pontuacao", 0) < level)
+            {
+                PlayerPrefs.SetInt("Jogo3Pontuacao", level);
+            }
+
+            PlayerPrefs.SetFloat("Jogo3Metrica", (PlayerPrefs.GetFloat("Jogo3Metrica", 0) + level) / 2);
+
+            new WaitForSeconds(3);
+            SceneManager.LoadScene(2);
             return;
         }
 
@@ -47,6 +55,12 @@ public class Spaw : MonoBehaviour
             Instantiate(forma, Vector3.zero, Quaternion.identity);
             nextSpawn = Time.time + 1/level + 2;
             level++;
+
+            if (PlayerPrefs.GetInt("Jogo3Pontuacao", 0) < level)
+            {
+                PlayerPrefs.SetInt("Jogo3Pontuacao", level);
+            }
+
             Text.text = "Ponto: " + (level-1);
         }
 
@@ -62,11 +76,6 @@ public class Spaw : MonoBehaviour
     {
         situacao = true;
 
-    }
-
-    void TaskOnClick()
-    {
-        SceneManager.LoadScene(2);
     }
 
 }
