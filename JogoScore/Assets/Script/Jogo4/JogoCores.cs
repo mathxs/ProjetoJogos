@@ -10,11 +10,11 @@ public class JogoCores : MonoBehaviour {
 	public string[] arraypalavras;
 	public int[] numeros;
 	public int palavraaleatoria;
-	public GameObject PalavraSorteada;
+    public Text PalavraSorteada;
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
 		//Inicializa vetor de cores
 		arraycores = new Color[6];
@@ -57,6 +57,7 @@ public class JogoCores : MonoBehaviour {
 	void jogodecores(){
 
 
+<<<<<<< HEAD
 		for( int j = 0 ; j < 19 ; j++ ) {
 			palavraaleatoria = (int)(Random.Range(0,5));
 			//PalavraSorteada = Instantiate(GameObject);
@@ -66,7 +67,20 @@ public class JogoCores : MonoBehaviour {
 
 		}
 
+=======
+        for (int j = 0; j < 19; j++)
+        {
+            palavraaleatoria = (int)(Random.Range(0, 5));
+            Debug.Log(palavraaleatoria);
+            PalavraSorteada.text = arraypalavras[palavraaleatoria];
+            PalavraSorteada.color = arraycores[numeros[j]];
+            //PalavraSorteada.GetComponent<Text>.Text = arraypalavras[palavraaleatoria];
+            //PalavraSorteada.GetComponent<Text>.Color = arraycores[numeros[j]];
+            System.Threading.Thread.Sleep(10000);
+            //StartCoroutine(espera());
+>>>>>>> 6958a3f477490d8df483187909985c4877a4c4c9
 
+        }
 
 	}
 

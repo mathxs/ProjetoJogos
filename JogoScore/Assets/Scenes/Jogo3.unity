@@ -345,7 +345,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 0.01744052, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -526,7 +526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf75881ebbad8f142a6acd0b0516fd47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnObjetos: 1
   level: 1
   Text: {fileID: 620509701}
   forma: {fileID: 1613056777550974, guid: 9c140edd797182343bf3b16ddb9ba217, type: 2}
