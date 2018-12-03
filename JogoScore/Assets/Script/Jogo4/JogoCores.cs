@@ -60,14 +60,14 @@ public class JogoCores : MonoBehaviour {
 
 
 //<<<<<<< HEAD
-		for( int j = 0 ; j < 19 ; j++ ) {
-			palavraaleatoria = (int)(Random.Range(0,5));
+		//for( int j = 0 ; j < 19 ; j++ ) {
+		//	palavraaleatoria = (int)(Random.Range(0,5));
 			//PalavraSorteada = Instantiate(GameObject);
 			//PalavraSorteada.GetComponent<Text>.Text = arraypalavras[palavraaleatoria];
 			//PalavraSorteada.GetComponent<Text>.Color = arraycores[numeros[j]];
 			//StartCoroutine(espera());
 
-		}
+		//}
 
 //=======
         for (int j = 0; j < 19; j++)
