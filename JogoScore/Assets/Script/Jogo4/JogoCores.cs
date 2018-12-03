@@ -72,7 +72,7 @@ public class JogoCores : MonoBehaviour {
 	void jogodecores(){
 
         palavraaleatoria = (int)(Random.Range(0, 5));
-        Debug.Log(arraypalavras[palavraaleatoria]);
+        //Debug.Log(arraypalavras[palavraaleatoria]);
         PalavraSorteada.text = arraypalavras[palavraaleatoria];
         PalavraSorteada.color = arraycores[numeros[palavraaleatoria]];
         check = palavraaleatoria;
