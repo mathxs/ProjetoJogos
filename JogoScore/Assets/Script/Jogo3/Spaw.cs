@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Spaw : MonoBehaviour
 {
 
-    public float spawnObjetos = 5f;
     public int level = 1;
     public Text Text;
     public GameObject forma;
@@ -39,16 +38,16 @@ public class Spaw : MonoBehaviour
             return;
         }
 
-        movement = Input.GetAxisRaw("Horizontal")/6;
+        movement = Input.GetAxisRaw("Horizontal")/3;
 
         if (Time.time >= nextSpawn)
         {
-
+            forma.GetComponent<LineRenderer>().SetColors(Color.HSVToRGB(1f, (level / 100f) % 1f, 1f), Color.HSVToRGB((level / 100f) % 1f, 1f, 1f));
+            //forma.GetComponent<LineRenderer>().material.SetColor("_Color", Color.HSVToRGB(1f, (level / 100f) % 1f, 1f));
             Instantiate(forma, Vector3.zero, Quaternion.identity);
-            nextSpawn = Time.time + 5 + spawnObjetos;
+            nextSpawn = Time.time + 1/level + 2;
             level++;
-            spawnObjetos--;
-            Text.text = "Ponto: " + level;
+            Text.text = "Ponto: " + (level-1);
         }
 
     }
