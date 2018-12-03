@@ -78,16 +78,22 @@ public class JogoCores : MonoBehaviour {
         PalavraSorteada.color = arraycores[numeros[palavraaleatoria]];
         check = palavraaleatoria;
 
+<<<<<<< HEAD
+//<<<<<<< HEAD
+		//for( int j = 0 ; j < 19 ; j++ ) {
+		//	palavraaleatoria = (int)(Random.Range(0,5));
+=======
         /*
         //<<<<<<< HEAD
         for ( int j = 0 ; j < 19 ; j++ ) {
 			palavraaleatoria = (int)(Random.Range(0,5));
+>>>>>>> a7a1e8f277e2a7580f56e0b9221f79ff9922a930
 			//PalavraSorteada = Instantiate(GameObject);
 			//PalavraSorteada.GetComponent<Text>.Text = arraypalavras[palavraaleatoria];
 			//PalavraSorteada.GetComponent<Text>.Color = arraycores[numeros[j]];
 			//StartCoroutine(espera());
 
-		}
+		//}
 
 //=======
         for (int j = 0; j < 19; j++)
