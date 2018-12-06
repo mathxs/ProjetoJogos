@@ -15,11 +15,12 @@ public class JogoCores : MonoBehaviour {
 	public int check;
     public int level;
     public int contador;
+    private int tentativas;
 
     // Use this for initialization
     void Start () {
 
-
+        tentativas = 0;
         level = 0;
 
         //Inicializa vetor de cores
@@ -50,7 +51,7 @@ public class JogoCores : MonoBehaviour {
     // Update is called once per frame
     void LaunchProjectile()
     {
-        if (contador < 20)
+        if (contador < 20 && tentativas <20)
         {
             jogodecores();
             contador++;
@@ -103,6 +104,7 @@ public class JogoCores : MonoBehaviour {
         {
             level++;
         }
+        tentativas++;
         Debug.Log("Vermelho");
 
     }
@@ -114,7 +116,7 @@ public class JogoCores : MonoBehaviour {
             level++;
         }
         Debug.Log("Branco");
-
+        tentativas++;
     }
 
     public void bot_azul()
@@ -124,7 +126,7 @@ public class JogoCores : MonoBehaviour {
             level++;
         }
         Debug.Log("Azul");
-
+        tentativas++;
 
     }
 
@@ -135,6 +137,7 @@ public class JogoCores : MonoBehaviour {
             level++;
         }
         Debug.Log("Verde");
+        tentativas++;
 
     }
 
@@ -145,6 +148,7 @@ public class JogoCores : MonoBehaviour {
             level++;
         }
         Debug.Log("Amarelo");
+        tentativas++;
 
 
     }
@@ -156,6 +160,7 @@ public class JogoCores : MonoBehaviour {
             level++;
         }
         Debug.Log("Cinza");
+        tentativas++;
 
 
     }
